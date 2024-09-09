@@ -73,19 +73,51 @@ ____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
 /______/______/______/______/______/______/______/______/______/______/[TomekK]
 *******************************************************************************
 ''')
+
+# code is strt from here
+import random
+
 print("**********WELCOME TO THE TREASURE HUNT*********")
 print("Your mission to find the Treasure.")
 choose1 = input("You are at the crossover,choose \"left\" or \"right\".").lower()
 
+# choose first:
+def num():
+    ans = random.randint(0,1)
+    return ans
+t1 = num()
+if t1==0:
+    t1 = "left"
+else:
+    t1 ="right"
 
 
-if choose1 == "left":
+
+
+if choose1 == t1:
+
+    # choose second:
+    t2 = num()
+    if t2 == 0:
+        t2 = "wait"
+    else:
+        t2 = "swing"
     sea()
     choose2=input("You are at the bank of a river .choose to \"swing\" or \"wait\".").lower()
-    if choose2 == "wait":
+    if choose2 == t2:
+
+        #choose third:
+        t3 = random.randint(0,2)
+        if t3 == 0:
+            t3 = "cave black"
+        elif t3 == 1:
+            t3 ="cave blue"
+        else:
+            t3 = "cave red"
+
         cave()
         choose3 = input("You are at the island.choose to go in \"cave red\" or\"cave blue\"or \"Cave black\".").lower()
-        if choose3 == "cave black":
+        if choose3 == t3:
             print("^_^ , Congratulation,You found the treasure")
         else:
             print("You die by the hand of great sage. Game over")
